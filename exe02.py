@@ -29,3 +29,28 @@ while True:
         # Adiciona o palpite ao histórico
         historico.append(palpite)
         tentativas_restantes -= 1
+
+        # --- LÓGICA E COMPARAÇÕES ---
+        if palpite == numero_secreto:
+            ganhou = True
+            break
+        elif palpite > numero_secreto:
+            print("📉 Muito alto!")
+        else:
+            print("📈 Muito baixo!")
+
+    # --- FIM DA RODADA / RESULTADOS ---
+    print("\n" + "-"*30)
+    if ganhou:
+        print(f"🎉 Parabéns! Você acertou em {7 - tentativas_restantes} tentativa(s)!")
+        print(f"🏆 Histórico final de palpites: {historico}")
+    else:
+        print(f"💥 Que pena, suas chances acabaram! O número correto era: {numero_secreto}")
+        print(f"📋 Seu histórico de tentativas: {historico}")
+    print("-"*30)
+
+    # --- PERGUNTAR SE DESEJA JOGAR NOVAMENTE ---
+    jogar_de_novo = input("\nDeseja jogar novamente? (s/n): ").strip().lower()
+    if jogar_de_novo != 's':
+        print("\nObrigado por jogar! Até a próxima. 👋")
+        break
